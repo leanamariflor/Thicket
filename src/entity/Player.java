@@ -101,7 +101,6 @@ public class Player extends Entity {
             return;
         }
 
-
         if (gp.eHandler.checkPitTile()) {
             trapActivated = true;
         }
@@ -117,6 +116,33 @@ public class Player extends Entity {
         }
 
         collisionOn = false;
+
+        if (attackCooldown > 0) {
+            attackCooldown--;
+        }
+
+        if (keyH.spacePressed && !isAttacking && attackCooldown == 0) {
+            if (gp.chosenCharacter == 0 || gp.chosenCharacter == 2) {
+                if (direction.equals("left")) {
+                    isAttacking = true;
+                    attackFrame = 0;
+                    attackCooldown = 20;
+                    attack("left");
+                } else if (direction.equals("right")) {
+                    isAttacking = true;
+                    attackFrame = 0;
+                    attackCooldown = 20;
+                    attack("right");
+                }
+            }
+        }
+
+        if (isAttacking) {
+            attackFrame++;
+            if (attackFrame > 10) {
+                isAttacking = false;
+            }
+        }
 
         if (keyH.downPressed || keyH.leftPressed || keyH.upPressed || keyH.rightPressed) {
             if (keyH.upPressed) direction = "up";
@@ -144,6 +170,7 @@ public class Player extends Entity {
             }
         }
     }
+
 
 
 

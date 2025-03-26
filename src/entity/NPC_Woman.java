@@ -45,9 +45,8 @@ public class NPC_Woman extends Entity{
     }
 
     public  void setDialogue(){
-        dialogue[0] = "Hi bitch";
-        dialogue[1]= "adfasfsdfsfdfasdasdasdasdasdasdsd\nafasdasdasdsadasd";
-        dialogue[2] = "tangasdkfasdfioasdoaskdokasokdas\nputanginasdaskdkaskdaskd";
+        dialogue[0] = "Hi Sir";
+
     }
 
     public void setAction(){

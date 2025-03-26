@@ -14,6 +14,7 @@ public class UI {
     public  String currentDialogue = "";
 
 
+
     BufferedImage characterOrion, characterElden, characterBriana;
 
     public UI(GamePanel gp){
@@ -100,7 +101,6 @@ public class UI {
     }
 
     public void drawDialogueScreen() {
-        // ✅ Ensure currentDialogue is never null
         if (currentDialogue == null) {
             currentDialogue = ""; // Set to empty string if null
         }
@@ -118,7 +118,6 @@ public class UI {
         x += gp.tileSize;
         y += gp.tileSize;
 
-        // ✅ Safe way to split and draw dialogue
         for (String line : currentDialogue.split("\n")) {
             g2.drawString(line, x, y);
             y += 40;
